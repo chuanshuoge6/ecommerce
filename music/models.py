@@ -1,0 +1,50 @@
+from django.db import models
+from django.urls import reverse
+from django.contrib.auth.models import User
+
+class Album(models.Model):
+    artist = models.CharField(max_length=50)
+    album_title = models.CharField(max_length=50)
+    genre = models.CharField(max_length=50)
+    album_logo = models.TextField(default='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')
+    date_posted = models.DateTimeField(auto_now_add=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    price = models.DecimalField(decimal_places=2,max_digits=5, default=10)
+
+    #form submitted without action redirect to detail
+    def get_absolute_url(self):
+        return reverse('music:detail', kwargs={'pk': self.pk})
+
+    #query album.objects.get(pk=1)
+    def __str__(self):
+        return self.album_title + ' - ' + self.artist
+
+class Song(models.Model):
+    album = models.ForeignKey(Album, on_delete=models.CASCADE)
+    file_type = models.CharField(max_length=50)
+    song_title = models.CharField(max_length=50)
+    is_favorite = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.song_title
+
+        # form submitted without action redirect to detail
+    def get_absolute_url(self):
+        return reverse('music:detail', kwargs={'pk': self.album.id})
+
+class ShoppingItem(models.Model):
+    shopper = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    album = models.ForeignKey(Album, on_delete=models.CASCADE, blank=True, default=1)
+    quantity = models.PositiveIntegerField(blank=True, default=0)
+
+    def __str__(self):
+        return 'shopper ' + str(self.shopper) + ' - album ' + str(self.album) + ' - quantity '+str(self.quantity)
+
+class OrderHistory(models.Model):
+    order = models.CharField(max_length=50)
+    shopper = models.ForeignKey(User, on_delete=models.CASCADE)
+    total = models.DecimalField(decimal_places=2,max_digits=7, default=0)
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.order)+ ' ' + str(self.shopper) + ' bought '  + str(self.total) + ' on ' + str(self.date)

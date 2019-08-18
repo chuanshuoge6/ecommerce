@@ -1,0 +1,114 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@import url(//fonts.googleapis.com/css?family=Srisakdi);
+
+.Nav-Brand{
+  font-family: 'Srisakdi', serif;
+  font-weight: bold;
+  text-shadow: 4px 4px 4px #aaa;
+  font-size: 20px;
+}
+
+.Body-Background{
+  height: 100vh;
+  background-image: url("images/background.jpg");
+  background-size: 100%;
+  overflow: auto;
+}
+
+/* entire container, keeps perspective */
+.flip-container {
+	perspective: 1000px;
+}
+	/* flip the pane when hovered */
+	.flip-container:hover .flipper, .flip-container.manu-flip .flipper {
+		transform: rotateY(180deg);
+	}
+
+.flip-container, .front, .back {
+	width: 200px;
+	height: 250px;
+}
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+	transform: rotateY(180deg);
+}
+
+.flip-button{
+  position: absolute;
+  right: 0;
+  bottom: 30px;
+  font-size: 30px;
+  cursor: pointer;
+  transition: 1s;
+  perspective: 1000px;
+}
+
+.flip-button:hover{
+  transform: rotateY(180deg);
+}
+
+.shopping-cart{
+  position: absolute;
+  left: 0;
+  bottom: 30px;
+  cursor: pointer;
+  font-size: 30px;
+}
